@@ -7,6 +7,8 @@ public class ChooseMic : MonoBehaviour
 
     void Start()
     {
+        // Clear the ABC first!
+        dropdown.ClearOptions();
         // Put all mics into dropdown
         dropdown.AddOptions(new System.Collections.Generic.List<string>(Microphone.devices));
 
