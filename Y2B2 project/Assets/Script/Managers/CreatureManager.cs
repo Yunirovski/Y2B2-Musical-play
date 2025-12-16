@@ -1,12 +1,10 @@
-using System;
-using System.Runtime.CompilerServices;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
+using UnityEngine.UI;
 
 public class CreatureManager : MonoBehaviour
 {
     [SerializeField] private bool stateSwitch;
+    [SerializeField] private Slider loudnessSlider;
 
     [Header("Mic Settings")]
     [SerializeField] private MicrophoneListener listener;
@@ -49,6 +47,8 @@ public class CreatureManager : MonoBehaviour
     {
         float loudness = listener.GetLoudnessFromMic() * loudnessMultiplier;
 
+        loudnessSlider.value = loudness;
+
         if (stateSwitch)
         {
             CheckToWake(loudness);
@@ -57,6 +57,7 @@ public class CreatureManager : MonoBehaviour
         {
             CheckToSleep(loudness);
         }
+
     }
 
     void CheckToWake(float currentLoudness)
