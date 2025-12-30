@@ -120,6 +120,12 @@ public class CreatureManager : MonoBehaviour
         }
     }
 
+    private void GainPoint()
+    {
+
+    }
+
+
     private void WakeUpCreature()
     {
         creatureSR.sprite = WakeUpSprite;
