@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class Creature : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Creature : MonoBehaviour
     [Header("References")]
     [SerializeField] private MicrophoneListener listener;
     [SerializeField] private Slider loudnessSlider;
-    private SpriteRenderer creatureSR;
+    private Image creatureImage;
 
     [Header("State Settings")]
     [Tooltip("Match each state to a sprite")]
@@ -52,7 +53,7 @@ public class Creature : MonoBehaviour
     private void Awake()
     {
         // Grab the component
-        creatureSR = GetComponent<SpriteRenderer>();
+        creatureImage = GetComponent<Image>();  
     }
 
     void Start()
@@ -149,7 +150,7 @@ public class Creature : MonoBehaviour
 
         // Swap the creature its sprite to match the new state
         if (spriteStateMap.ContainsKey(state))
-            creatureSR.sprite = spriteStateMap[state];
+            creatureImage.sprite = spriteStateMap[state];
     }
 
     private void NextStage(int dir)
