@@ -1,12 +1,18 @@
-using NUnit.Framework.Constraints;
-using System.Security.Principal;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MicrophoneListener : MonoBehaviour
 {
     [SerializeField] private int sampleWindow = 64; // Amount of audio samples
     private AudioClip clip; // The recorded clip
     //private string activeMicName; // Current active mic
+
+    private bool isMuted = false;
+
+    [Header("Mute Button")]
+    [SerializeField] private Button muteMicButton;
+    [SerializeField] private Color mutedMicColor = Color.red;
+    [SerializeField] private Color unmutedMicColor = Color.white;
 
     void Start()
     {
@@ -32,6 +38,8 @@ public class MicrophoneListener : MonoBehaviour
     // Get the loudness from the microphone
     public float GetLoudnessFromMic()
     {
+        if (isMuted) return 0f;
+
         int clipPos = Microphone.GetPosition(Microphone.devices[0]); // Get position in the clip
         return GetLoudnessFromAudioClip(clipPos, clip);  // Calculate the loudness
     }
@@ -60,5 +68,12 @@ public class MicrophoneListener : MonoBehaviour
 
         // Return the loudness
         return totalLoudness / sampleWindow;
+    }
+
+    public void ToggleMute()
+    {
+        isMuted = !isMuted;
+
+        muteMicButton.image.color = isMuted ? mutedMicColor : unmutedMicColor;
     }
 }

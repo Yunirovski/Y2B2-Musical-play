@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+#################################################################
+#                  OLD CREATURE CODE                            #
+#################################################################
+*/
+
 public class CreatureManager : MonoBehaviour
 {
     [SerializeField] private bool stateSwitch;
