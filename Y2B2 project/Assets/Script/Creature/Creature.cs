@@ -17,6 +17,8 @@ public class Creature : MonoBehaviour
     [Header("References")]
     [SerializeField] private MicrophoneListener listener;
     [SerializeField] private Slider loudnessSlider;
+    [SerializeField] private Slider sensitivitySlider; // The new slider for sensitivity
+    [SerializeField] private float sensitivity = 25.0f; // Multiplier for mic volume
     private Image creatureImage;
 
     [Header("State Settings")]
@@ -80,6 +82,29 @@ public class Creature : MonoBehaviour
 
         HandleStates();
         UpdateTimers(loudness);
+
+        {
+            // 1. Get volume from mic
+            float rawLoudness = listener.GetLoudnessFromMic() * loudnessMultiplier;
+
+            // 2. Use slider value as sensitivity if the slider exists
+            if (sensitivitySlider != null)
+            {
+                sensitivity = sensitivitySlider.value;
+            }
+
+            // 3. Multiply volume by sensitivity
+            float processedLoudness = rawLoudness * sensitivity;
+
+            // 4. Show the result
+            if (loudnessSlider != null)
+                loudnessSlider.value = processedLoudness;
+
+            HandleStates();
+
+            // 5. Process the change
+            UpdateTimers(processedLoudness);
+        }
     }
 
 
