@@ -3,6 +3,13 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
+/* 
+    INFORMATION:
+    This script has been worked on by 2 people.
+    Gijs has made most of this script, the things were it says "Made by Yuni" that has been added by Yuni.
+*/
+
+
 public class Creature : MonoBehaviour
 {
     public enum CreatureState { Asleep, EyesOpen, GetUp, StandUp, Awake }
@@ -17,8 +24,7 @@ public class Creature : MonoBehaviour
     [Header("References")]
     [SerializeField] private MicrophoneListener listener;
     [SerializeField] private Slider loudnessSlider;
-    [SerializeField] private Slider sensitivitySlider; // The new slider for sensitivity
-    [SerializeField] private float sensitivity = 25.0f; // Multiplier for mic volume
+    [SerializeField] private Slider sensitivitySlider; // Made by Yuni
     private Image creatureImage;
 
     [Header("State Settings")]
@@ -36,6 +42,8 @@ public class Creature : MonoBehaviour
     [SerializeField] private float timeRequirement = 3f;
     [Tooltip("How long is needed of the opposite input (noise/silence) for the progress timers to reset")]
     [SerializeField] private float resetDelay = 3f;
+    [Tooltip("Multiplier for mic volume")]
+    [SerializeField] private float sensitivity = 25.0f; // Made by Yuni
 
     [Header("Becoming Awake")]
     [Tooltip("How long the player have been loud, DO NOT CHANGE")]
@@ -83,7 +91,9 @@ public class Creature : MonoBehaviour
         HandleStates();
         UpdateTimers(loudness);
 
+
         {
+            // Made by Yuni
             // 1. Get volume from mic
             float rawLoudness = listener.GetLoudnessFromMic() * loudnessMultiplier;
 
