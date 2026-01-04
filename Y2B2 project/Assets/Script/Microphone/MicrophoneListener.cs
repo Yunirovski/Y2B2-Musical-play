@@ -17,6 +17,7 @@ public class MicrophoneListener : MonoBehaviour
     void Start()
     {
         MicToAudioClip();
+        muteMicButton.image.color = unmutedMicColor;
     }
 
     //public void MicToAudioClip(string micName)
