@@ -1,46 +1,76 @@
 ﻿using UnityEngine;
-using TMPro; 
+using TMPro;
 
 public class SimpleTimer : MonoBehaviour
 {
     public TextMeshProUGUI timeDisplay;
-    private float timeLeft = 0f;
-    private bool isPaused = true;
+    public TextMeshProUGUI startPauseText;
 
-    // Run every frame
+    private float timeLeft = 0f;
+    private bool isRunning = false;
+
     void Update()
     {
-        if (!isPaused && timeLeft > 0)
+        // Countdown logic
+        if (isRunning && timeLeft > 0)
         {
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
                 timeLeft = 0;
-                isPaused = true;
-                TimeEnd(); // Trigger end
+                isRunning = false;
+                UpdateStartButtonText();
+                TimeEnd();
             }
             UpdateUI();
         }
     }
 
-    // --- Button Functions ---
+    // --- Main Control Buttons ---
 
-    public void StartTimer() { isPaused = false; }
-    public void PauseTimer() { isPaused = true; }
-    public void ResetTimer() { isPaused = true; timeLeft = 0; UpdateUI(); }
-
-    // Change time (h=hours, m=minutes, s=seconds)
-    public void AddTime(string unit, int amount)
+    public void ToggleStartPause()
     {
-        if (unit == "h") timeLeft += amount * 3600;
-        if (unit == "m") timeLeft += amount * 60;
-        if (unit == "s") timeLeft += amount;
+        if (timeLeft > 0 || isRunning)
+        {
+            isRunning = !isRunning;
+            UpdateStartButtonText();
+        }
+    }
 
+    public void ResetTimer()
+    {
+        isRunning = false;
+        timeLeft = 0;
+        UpdateStartButtonText();
+        UpdateUI();
+    }
+
+    // Time Adjustment Buttons 
+
+    public void AddHour() { AdjustTime(3600); }
+    public void SubHour() { AdjustTime(-3600); }
+    public void AddMin() { AdjustTime(60); }
+    public void SubMin() { AdjustTime(-60); }
+    public void AddSec() { AdjustTime(1); }
+    public void SubSec() { AdjustTime(-1); }
+
+    // Internal logic to change time
+    private void AdjustTime(float seconds)
+    {
+        if (isRunning) return; // Prevent change while running
+        timeLeft += seconds;
         if (timeLeft < 0) timeLeft = 0;
         UpdateUI();
     }
 
-    // Update the text on screen
+    // --- UI Helpers ---
+
+    void UpdateStartButtonText()
+    {
+        if (startPauseText == null) return;
+        startPauseText.text = isRunning ? "Pause" : "Start";
+    }
+    //Show time in HH:MM:SS format
     void UpdateUI()
     {
         int h = Mathf.FloorToInt(timeLeft / 3600);
@@ -49,7 +79,6 @@ public class SimpleTimer : MonoBehaviour
         timeDisplay.text = string.Format("{0:00}:{1:00}:{2:00}", h, m, s);
     }
 
-    // The trigger you asked for
     void TimeEnd()
     {
         Debug.Log("TIME END TRIGGERED");
