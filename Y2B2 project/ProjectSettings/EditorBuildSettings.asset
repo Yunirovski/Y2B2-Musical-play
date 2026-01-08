@@ -5,15 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/GijsScene.unity
-    guid: 5251156102a340a43bfc6e6e0cacab92
-  - enabled: 0
-    path: Assets/Scenes/Gijs + ale creature.unity
-    guid: f355ed5388b63ac4486752b667a5315d
+    path: Assets/Scenes/_MainMenu.unity
+    guid: f6f6a78277cb6be47b2405079bb615f5
+  - enabled: 1
+    path: Assets/Scenes/_GameScene.unity
+    guid: fd743f9cecf1fbf47a7968ae7c6a6d95
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
