@@ -23,6 +23,11 @@ public class MenuManager : MonoBehaviour
 
     private bool isOpen;
 
+    private void Awake()
+    {
+        UnityEngine.Rendering.DebugManager.instance.enableRuntimeUI = false;
+    }
+
     void Start()
     {
         originalPos = menuPanel.transform.position;

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: CloseEveryMenu
         m_Mode: 1
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: CloseEveryMenu
         m_Mode: 1
@@ -1062,7 +1062,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7528472329700007926}
         m_TargetAssemblyTypeName: MicrophoneListener, Assembly-CSharp
         m_MethodName: ToggleMute
         m_Mode: 1
@@ -2021,7 +2021,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ChangeMenu
         m_Mode: 3
@@ -2576,7 +2576,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: CloseEveryMenu
         m_Mode: 1
@@ -2846,7 +2846,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ChangeMenu
         m_Mode: 3
@@ -3075,9 +3075,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7284345516784434071}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 50
   m_WholeNumbers: 1
-  m_Value: 2
+  m_Value: 15
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3920,7 +3920,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OpenCloseMenu
         m_Mode: 1
@@ -4020,7 +4020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8b482444496d64d9043b879f16d2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Creature
-  listener: {fileID: 0}
+  listener: {fileID: 7528472329700007926}
   loudnessSlider: {fileID: 7882567258355411538}
   sensitivitySlider: {fileID: 5184794921589381673}
   stateVisualsList:
@@ -4695,6 +4695,54 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &5379005342802831483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1442878524487648218}
+  - component: {fileID: 7528472329700007926}
+  m_Layer: 0
+  m_Name: MicListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1442878524487648218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379005342802831483}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -539.0173, y: 430.1262, z: 0}
+  m_LocalScale: {x: 0.93201774, y: 0.93201774, z: 0.93201774}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2580648944259591682}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7528472329700007926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379005342802831483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c773769a4bc39409baf3f1cee1bf75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MicrophoneListener
+  sampleWindow: 64
+  muteMicButton: {fileID: 8694525831115223049}
+  mutedMicColor: {r: 1, g: 0, b: 0, a: 1}
+  unmutedMicColor: {r: 0, g: 1, b: 0.09169221, a: 1}
 --- !u!1 &5910301000545720168
 GameObject:
   m_ObjectHideFlags: 0
@@ -6020,6 +6068,58 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1 &7010556119623241098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4760885388658510115}
+  - component: {fileID: 6184398018690862038}
+  m_Layer: 0
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4760885388658510115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010556119623241098}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1135.1976, y: -524.26, z: 0}
+  m_LocalScale: {x: 0.93201774, y: 0.93201774, z: 0.93201774}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2580648944259591682}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6184398018690862038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010556119623241098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ccccb49bf9c1947953c70b3c5e73b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  menuPanel: {fileID: 2339112621100415087}
+  targetPos: {fileID: 1214641905204419706}
+  moveSpeed: 3
+  OpenCloseButton: {fileID: 4175283148856911442}
+  menus:
+  - {fileID: 1682795687061904536}
+  - {fileID: 581166532029355677}
+  - {fileID: 1266195143069643816}
 --- !u!1 &7047638263406452747
 GameObject:
   m_ObjectHideFlags: 0
@@ -6278,7 +6378,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ChangeMenu
         m_Mode: 3
@@ -6683,6 +6783,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1442878524487648218}
+  - {fileID: 4760885388658510115}
   - {fileID: 7655998922525658455}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
