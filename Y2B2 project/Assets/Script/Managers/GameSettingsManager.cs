@@ -1,15 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class GameSettingsManager : MonoBehaviour
 {
     [Tooltip("All background sprites")]
-    [SerializeField] private Sprite[] backgrounds;
+    [SerializeField] private VideoClip[] backgroundVideos;
+    [SerializeField] private VideoPlayer videoPlayer;
 
     [Tooltip("This is the image to for the switching backgrounds")]
-    [SerializeField] private Image backgroundSwitchImage;
+    [SerializeField] private RawImage backgroundSwitchVideo;
     [Tooltip("Image for the actual background")]
-    [SerializeField] private Image actualBackgroundImage;
+    [SerializeField] private RawImage actualBackgroundVideo;
 
     private int currentIndexBG = 0;
 
@@ -20,17 +22,17 @@ public class GameSettingsManager : MonoBehaviour
 
     private void SwitchBackground(int dir)
     {
-        if (backgrounds.Length == 0 || backgroundSwitchImage == null)
+        if (backgroundVideos.Length == 0 || backgroundSwitchVideo == null)
             return;
 
         // Move the index forward or backward
         currentIndexBG += dir;
 
         // Wrap around if it goes out of bounds
-        if (currentIndexBG >= backgrounds.Length)
+        if (currentIndexBG >= backgroundVideos.Length)
             currentIndexBG = 0;
         else if (currentIndexBG < 0) 
-            currentIndexBG = backgrounds.Length - 1;
+            currentIndexBG = backgroundVideos.Length - 1;
 
         UpdateBackground();
     }
@@ -39,11 +41,10 @@ public class GameSettingsManager : MonoBehaviour
     private void UpdateBackground()
     {
         // Get the current sprite
-        Sprite selectedSprite = backgrounds[currentIndexBG];
+        VideoClip selectedClip = backgroundVideos[currentIndexBG];
 
         // Update the UI images
-        backgroundSwitchImage.sprite = selectedSprite;
-        actualBackgroundImage.sprite = selectedSprite;
+        videoPlayer.clip = selectedClip;
     }
 
     // Functions for the buttons

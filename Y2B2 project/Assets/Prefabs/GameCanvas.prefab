@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: CloseEveryMenu
         m_Mode: 1
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: CloseEveryMenu
         m_Mode: 1
@@ -936,12 +936,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86771e273fcc2747b407a4185b85031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSettingsManager
-  backgrounds:
-  - {fileID: 8796556106230342854, guid: ff25d13023b14644e9be60a26feb24c2, type: 3}
-  - {fileID: -6241902477136715916, guid: e9940b5ccfb8e2a4591cfd9df240013c, type: 3}
-  - {fileID: 9047860330045039474, guid: 95dc8b1f331ca624ba0d7d37f51114c0, type: 3}
-  backgroundSwitchImage: {fileID: 8043676869203369154}
-  actualBackgroundImage: {fileID: 0}
+  backgroundVideos:
+  - {fileID: 32900000, guid: 63efe5e11636fe745a13d528846821c0, type: 3}
+  - {fileID: 32900000, guid: 288a5d569ebf91d48a952a0f5d882bf8, type: 3}
+  videoPlayer: {fileID: 359732173027694564}
+  backgroundSwitchVideo: {fileID: 5952261769499598250}
+  actualBackgroundVideo: {fileID: 7847669302096384070}
 --- !u!1 &624610646754533483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,7 +2033,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ChangeMenu
         m_Mode: 3
@@ -2525,7 +2525,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: CloseEveryMenu
         m_Mode: 1
@@ -2795,7 +2795,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ChangeMenu
         m_Mode: 3
@@ -4021,7 +4021,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OpenCloseMenu
         m_Mode: 1
@@ -4629,7 +4629,7 @@ RectTransform:
   m_Father: {fileID: 5357861036408401409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0.3, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6503,7 +6503,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6184398018690862038}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ChangeMenu
         m_Mode: 3
@@ -6537,7 +6537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3524279763635896143}
   - component: {fileID: 6993427976435068260}
-  - component: {fileID: 8043676869203369154}
+  - component: {fileID: 5952261769499598250}
   m_Layer: 5
   m_Name: BGImage
   m_TagString: Untagged
@@ -6572,7 +6572,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7145314950511995253}
   m_CullTransparentMesh: 1
---- !u!114 &8043676869203369154
+--- !u!114 &5952261769499598250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6581,9 +6581,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7145314950511995253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -6592,16 +6592,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 8400000, guid: 668726c0dd9b30243ae053f6478bb9d5, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &7195715002663957511
 GameObject:
   m_ObjectHideFlags: 0
@@ -6846,8 +6843,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1702453703458825350}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.3, y: 0}
+  m_AnchorMax: {x: 0.3, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
