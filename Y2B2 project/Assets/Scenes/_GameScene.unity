@@ -256,6 +256,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579115034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7528472329700007926, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+  m_PrefabInstance: {fileID: 7966316050178610957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c773769a4bc39409baf3f1cee1bf75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MicrophoneListener
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,9 +795,17 @@ PrefabInstance:
       value: GameCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 8694525831115223049, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 579115034}
+    - target: {fileID: 8694525831115223049, guid: f917aa22581a29648a7c11a25350336e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1302708331}
+    - target: {fileID: 8694525831115223049, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleMute
+      objectReference: {fileID: 0}
     - target: {fileID: 9069756796580367042, guid: f917aa22581a29648a7c11a25350336e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
