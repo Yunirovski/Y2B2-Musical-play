@@ -19,6 +19,7 @@ public class Creature : MonoBehaviour
     {
         public CreatureState state;
         public Sprite sprite;
+        public string animationName;// Made by Yuni, add animation
     }
 
     [Header("References")]
@@ -26,6 +27,7 @@ public class Creature : MonoBehaviour
     [SerializeField] private Slider loudnessSlider;
     [SerializeField] private Slider sensitivitySlider; // Made by Yuni
     private Image creatureImage;
+    private Animator animator;// Made by Yuni, Animator component
 
     [Header("State Settings")]
     [Tooltip("Match each state to a sprite")]
@@ -58,22 +60,27 @@ public class Creature : MonoBehaviour
     [SerializeField] private float noiseCooldown;
 
     private Dictionary<CreatureState, Sprite> spriteStateMap;
-
+    private Dictionary<CreatureState, string> animationMap; // Made by Yuni, NEW: Maps state to animation name
     private void Awake()
     {
         // Grab the component
-        creatureImage = GetComponent<Image>();  
+        creatureImage = GetComponent<Image>();
+        animator = GetComponent<Animator>(); // Made by Yuni
     }
 
     void Start()
     {
         // Initialize the dictionary
         spriteStateMap = new Dictionary<CreatureState, Sprite>();
-
+        animationMap = new Dictionary<CreatureState, string>(); // Made by Yuni
         // Fill the dictionary 
         foreach (var visual in stateVisualsList)
             if (!spriteStateMap.ContainsKey(visual.state))
                 spriteStateMap.Add(visual.state, visual.sprite);
+
+        foreach (var visual in stateVisualsList)// Made by Yuni
+            if (!animationMap.ContainsKey(visual.state))// Made by Yuni
+                animationMap.Add(visual.state, visual.animationName);// Made by Yuni
 
         // Set the start state
         SetState(currentState);
