@@ -6,6 +6,7 @@ public class MicrophoneListener : MonoBehaviour
     [SerializeField] private int sampleWindow = 64; // Amount of audio samples
     private AudioClip clip; // The recorded clip
     //private string activeMicName; // Current active mic
+    private string currentMicName; // made by Yuni
 
     private bool isMuted = false;
 
@@ -16,7 +17,11 @@ public class MicrophoneListener : MonoBehaviour
 
     void Start()
     {
-        MicToAudioClip();
+        // Init with default mic - made by Yuni
+        if (Microphone.devices.Length > 0)
+        {
+            UpdateMic(Microphone.devices[0]);
+        }
         muteMicButton.image.color = unmutedMicColor;
     }
 
@@ -29,7 +34,12 @@ public class MicrophoneListener : MonoBehaviour
     //
     //    clip = Microphone.Start(activeMicName, true, 1, AudioSettings.outputSampleRate);
     //}
-
+    // New method to change mic source - made by Yuni
+    public void UpdateMic(string newMicName)
+    {
+        currentMicName = newMicName;
+        clip = Microphone.Start(currentMicName, true, 1, AudioSettings.outputSampleRate);
+    }
     private void MicToAudioClip()
     {
         string micName = Microphone.devices[0]; // Get the mic name
@@ -39,9 +49,10 @@ public class MicrophoneListener : MonoBehaviour
     // Get the loudness from the microphone
     public float GetLoudnessFromMic()
     {
-        if (isMuted) return 0f;
+        if (isMuted || string.IsNullOrEmpty(currentMicName)) return 0f;
 
-        int clipPos = Microphone.GetPosition(Microphone.devices[0]); // Get position in the clip
+        // Use currentMicName instead of index 0 - made by Yuni
+        int clipPos = Microphone.GetPosition(currentMicName);
         return GetLoudnessFromAudioClip(clipPos, clip);  // Calculate the loudness
     }
 
