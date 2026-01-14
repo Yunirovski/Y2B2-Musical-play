@@ -1,13 +1,28 @@
 ﻿using UnityEngine;
 using TMPro;
 
+/* INFORMATION:
+    This script has been worked on by 2 people.
+    Yuni has made most of this script, the things were it says "Made by Gijs" that has been added by Gijs.
+*/
+
 public class SimpleTimer : MonoBehaviour
 {
     public TextMeshProUGUI timeDisplay;
     public TextMeshProUGUI startPauseText;
 
+    [SerializeField] private TMP_Text timeDisplayInGame; // Made by Gijs
+
     private float timeLeft = 0f;
     private bool isRunning = false;
+
+    private void Start()
+    {
+        // Made by Gijs
+        timeDisplayInGame.transform.parent.gameObject.SetActive(false);
+        timeDisplayInGame.text = "";
+        // Until here
+    }
 
     void Update()
     {
@@ -77,6 +92,11 @@ public class SimpleTimer : MonoBehaviour
         int m = Mathf.FloorToInt((timeLeft % 3600) / 60);
         int s = Mathf.FloorToInt(timeLeft % 60);
         timeDisplay.text = string.Format("{0:00}:{1:00}:{2:00}", h, m, s);
+
+        // Made by Gijs
+        timeDisplayInGame.transform.parent.gameObject.SetActive(isRunning);
+        timeDisplayInGame.text = isRunning ? $"{h:00}:{m:00}:{s:00}" : "";
+        // Until here
     }
 
     void TimeEnd()

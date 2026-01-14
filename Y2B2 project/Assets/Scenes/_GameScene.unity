@@ -210,6 +210,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219122082}
   m_CullTransparentMesh: 1
+--- !u!114 &385567648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5509241946579855459, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+  m_PrefabInstance: {fileID: 7966316050178610957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &443824043 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7655998922525658455, guid: f917aa22581a29648a7c11a25350336e, type: 3}
@@ -1760,6 +1771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Timer
   timeDisplay: {fileID: 1442324021}
   startPauseText: {fileID: 1797644749}
+  timeDisplayInGame: {fileID: 385567648}
 --- !u!4 &1679912644
 Transform:
   m_ObjectHideFlags: 0
