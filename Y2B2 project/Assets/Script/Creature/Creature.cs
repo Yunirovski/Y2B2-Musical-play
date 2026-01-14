@@ -3,8 +3,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-/* 
-    INFORMATION:
+/* INFORMATION:
     This script has been worked on by 2 people.
     Gijs has made most of this script, the things were it says "Made by Yuni" that has been added by Yuni.
 */
@@ -19,7 +18,6 @@ public class Creature : MonoBehaviour
     {
         public CreatureState state;
         public Sprite sprite;
-        public string animationName;// Made by Yuni, add animation
     }
 
     [Header("References")]
@@ -27,13 +25,13 @@ public class Creature : MonoBehaviour
     [SerializeField] private Slider loudnessSlider;
     [SerializeField] private Slider sensitivitySlider; // Made by Yuni
     private Image creatureImage;
-    private Animator animator;// Made by Yuni, Animator component
+    [SerializeField] private Animator creatureAnimator; // Made by Yuni, animation
 
     [Header("State Settings")]
     [Tooltip("Match each state to a sprite")]
     [SerializeField] private List<StateVisuals> stateVisualsList;
     [Tooltip("Current state of the creature")]
-    [SerializeField] private CreatureState currentState = CreatureState.Asleep;
+    public CreatureState currentState = CreatureState.Asleep; // Changed to public to allow access
 
     [Header("Settings")]
     [Tooltip("Multiplies the mic input")]
@@ -60,27 +58,25 @@ public class Creature : MonoBehaviour
     [SerializeField] private float noiseCooldown;
 
     private Dictionary<CreatureState, Sprite> spriteStateMap;
-    private Dictionary<CreatureState, string> animationMap; // Made by Yuni, NEW: Maps state to animation name
+
     private void Awake()
     {
         // Grab the component
         creatureImage = GetComponent<Image>();
-        animator = GetComponent<Animator>(); // Made by Yuni
+
+        // Try to get animator if not assigned
+        if (creatureAnimator == null) creatureAnimator = GetComponent<Animator>(); // Made by Yuni, animation
     }
 
     void Start()
     {
         // Initialize the dictionary
         spriteStateMap = new Dictionary<CreatureState, Sprite>();
-        animationMap = new Dictionary<CreatureState, string>(); // Made by Yuni
+
         // Fill the dictionary 
         foreach (var visual in stateVisualsList)
             if (!spriteStateMap.ContainsKey(visual.state))
                 spriteStateMap.Add(visual.state, visual.sprite);
-
-        foreach (var visual in stateVisualsList)// Made by Yuni
-            if (!animationMap.ContainsKey(visual.state))// Made by Yuni
-                animationMap.Add(visual.state, visual.animationName);// Made by Yuni
 
         // Set the start state
         SetState(currentState);
@@ -95,40 +91,34 @@ public class Creature : MonoBehaviour
         if (loudnessSlider != null)
             loudnessSlider.value = loudness;
 
-        HandleStates();
-        UpdateTimers(loudness);
+        // Made by Yuni - Consolidated Update logic to avoid double-running timers
+        // 1. Get volume from mic
+        float rawLoudness = listener.GetLoudnessFromMic() * loudnessMultiplier;
 
-
+        // 2. Use slider value as sensitivity if the slider exists
+        if (sensitivitySlider != null)
         {
-            // Made by Yuni
-            // 1. Get volume from mic
-            float rawLoudness = listener.GetLoudnessFromMic() * loudnessMultiplier;
-
-            // 2. Use slider value as sensitivity if the slider exists
-            if (sensitivitySlider != null)
-            {
-                sensitivity = sensitivitySlider.value;
-            }
-
-            // 3. Multiply volume by sensitivity
-            float processedLoudness = rawLoudness * sensitivity;
-
-            // 4. Show the result
-            if (loudnessSlider != null)
-                loudnessSlider.value = processedLoudness;
-
-            HandleStates();
-
-            // 5. Process the change
-            UpdateTimers(processedLoudness);
+            sensitivity = sensitivitySlider.value;
         }
+
+        // 3. Multiply volume by sensitivity
+        float processedLoudness = rawLoudness * sensitivity;
+
+        // 4. Show the result
+        if (loudnessSlider != null)
+            loudnessSlider.value = processedLoudness;
+
+        HandleStates();
+
+        // 5. Process the change
+        UpdateTimers(processedLoudness);
     }
 
 
     private void UpdateTimers(float loudness)
     {
         // Audio detected || MOVE TOWARDS WAKING UP
-        if(loudness > threshold)
+        if (loudness > threshold)
         {
             timerAbove += Time.deltaTime;
             silenceCooldown = 0;
@@ -138,14 +128,14 @@ public class Creature : MonoBehaviour
             silenceCooldown += Time.deltaTime;
 
             // Wait 3 secs of silence, until resetting
-            if(silenceCooldown >= resetDelay)
+            if (silenceCooldown >= resetDelay)
             {
                 timerAbove = 0;
             }
         }
 
         // Silence audio || MOVE TOWARDS FALLING ASLEEP
-        if(loudness <= threshold)
+        if (loudness <= threshold)
         {
             timerBelow += Time.deltaTime;
             noiseCooldown = 0;
@@ -153,9 +143,9 @@ public class Creature : MonoBehaviour
         else // Noise detected
         {
             noiseCooldown += Time.deltaTime;
-        
+
             // Wait 3 secs of audio, until resetting
-            if(noiseCooldown >= resetDelay)
+            if (noiseCooldown >= resetDelay)
             {
                 timerBelow = 0;
             }
@@ -190,14 +180,17 @@ public class Creature : MonoBehaviour
         noiseCooldown = 0;
 
         // Swap the creature its sprite to match the new state
-        if (spriteStateMap.ContainsKey(state))
+        if (creatureImage != null && spriteStateMap.ContainsKey(state))
             creatureImage.sprite = spriteStateMap[state];
+
+        // Play the animation matching the state name
+        if (creatureAnimator != null) creatureAnimator.Play(state.ToString()); // Made by Yuni, animation
     }
 
     private void NextStage(int dir)
     {
         // Convert state to number, add the direction (1 to go up, -1 to go down), clamp it so it stays within the list
-        int nextIndex = Mathf.Clamp((int)currentState + dir, 0, stateVisualsList.Count - 1);
+        int nextIndex = Mathf.Clamp((int)currentState + dir, 0, Enum.GetValues(typeof(CreatureState)).Length - 1);
 
         // Convert the number back into a state
         SetState((CreatureState)nextIndex);
@@ -212,7 +205,7 @@ public class Creature : MonoBehaviour
         }
         else
         {
-            SetState(CreatureState.Asleep); 
+            SetState(CreatureState.Asleep);
         }
     }
 }
