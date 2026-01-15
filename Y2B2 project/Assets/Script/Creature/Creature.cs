@@ -173,20 +173,52 @@ public class Creature : MonoBehaviour
         // Update the current state
         currentState = state;
 
-        // Everytime the states change, reset all timers
+        // Reset all timers whenever the state changes
         timerAbove = 0;
         timerBelow = 0;
         silenceCooldown = 0;
         noiseCooldown = 0;
 
-        // Swap the creature its sprite to match the new state
+        // Swap the creature sprite to match the new state
         if (creatureImage != null && spriteStateMap.ContainsKey(state))
             creatureImage.sprite = spriteStateMap[state];
 
-        // Play the animation matching the state name
-        if (creatureAnimator != null) creatureAnimator.Play(state.ToString()); // Made by Yuni, animation
+        // Original functionality: Play animation by state name
+        if (creatureAnimator != null)
+            creatureAnimator.Play(state.ToString());
+
+        // New logic: Handle boolean parameters for Unity Animator Controller
+        UpdateAnimatorBooleans(state);
     }
 
+    private void UpdateAnimatorBooleans(CreatureState state)
+    {
+        if (creatureAnimator == null) return;
+
+        // Reset all booleans first to ensure only one is active at a time
+        creatureAnimator.SetBool("awake", false);
+        creatureAnimator.SetBool("awakening", false);
+        creatureAnimator.SetBool("falling_asleep", false);
+        creatureAnimator.SetBool("asleep", false);
+
+        // Set the specific boolean based on the current state
+        switch (state)
+        {
+            case CreatureState.Awake:
+                creatureAnimator.SetBool("awake", true);
+                break;
+            case CreatureState.StandUp:
+                creatureAnimator.SetBool("awakening", true);
+                break;
+            case CreatureState.EyesOpen:
+                creatureAnimator.SetBool("falling_asleep", true);
+                break;
+            case CreatureState.Asleep:
+                creatureAnimator.SetBool("asleep", true);
+                break;
+                // Note: GetUp does not have a boolean assigned in your requirement
+        }
+    }
     private void NextStage(int dir)
     {
         // Convert state to number, add the direction (1 to go up, -1 to go down), clamp it so it stays within the list
