@@ -51,10 +51,10 @@ public class MenuManager : MonoBehaviour
     {
         isOpen = state;
 
-        if (isOpen)
-            buttonText.text = "Close Menu";
-        else
-            buttonText.text = "Open Menu";
+        //if (isOpen)
+        //    buttonText.text = "Close Menu";
+        //else
+        //    buttonText.text = "Open Menu";
     }
 
     // Open and close the menu bar

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /* INFORMATION:
     This script has been worked on by 2 people.
@@ -9,12 +10,16 @@ using TMPro;
 public class SimpleTimer : MonoBehaviour
 {
     public TextMeshProUGUI timeDisplay;
-    public TextMeshProUGUI startPauseText;
-
-    [SerializeField] private TMP_Text timeDisplayInGame; // Made by Gijs
 
     private float timeLeft = 0f;
     private bool isRunning = false;
+
+    // Made by Gijs
+    [SerializeField] private TMP_Text timeDisplayInGame;
+    [SerializeField] private Sprite pauseSprite;
+    [SerializeField] private Sprite playSprite;
+    [SerializeField] private Button playPauseButton;
+    // Until here
 
     private void Start()
     {
@@ -82,8 +87,10 @@ public class SimpleTimer : MonoBehaviour
 
     void UpdateStartButtonText()
     {
-        if (startPauseText == null) return;
-        startPauseText.text = isRunning ? "Pause" : "Start";
+        // Made by Gijs
+        if (playPauseButton == null) return;
+        playPauseButton.image.sprite = isRunning ? pauseSprite : playSprite;
+        // Until here
     }
     //Show time in HH:MM:SS format
     void UpdateUI()
