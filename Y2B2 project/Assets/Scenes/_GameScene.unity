@@ -323,8 +323,8 @@ MonoBehaviour:
   currentState: 4
   loudnessMultiplier: 100
   threshold: 0.1
-  timeRequirement: 3
-  resetDelay: 7
+  timeRequirement: 2
+  resetDelay: 1
   sensitivity: 2
   timerAbove: 0
   silenceCooldown: 0
@@ -643,7 +643,7 @@ MonoBehaviour:
   currentState: 4
   loudnessMultiplier: 100
   threshold: 0.1
-  timeRequirement: 3
+  timeRequirement: 2
   resetDelay: 1
   sensitivity: 2
   timerAbove: 0
@@ -838,8 +838,8 @@ MonoBehaviour:
   currentState: 4
   loudnessMultiplier: 100
   threshold: 0.1
-  timeRequirement: 3
-  resetDelay: 7
+  timeRequirement: 2
+  resetDelay: 1
   sensitivity: 2
   timerAbove: 0
   silenceCooldown: 0
