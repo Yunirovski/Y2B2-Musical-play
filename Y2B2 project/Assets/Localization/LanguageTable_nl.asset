@@ -19,17 +19,64 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 309141643264
-    m_Localized: 'Wisselknop = Schakel tussen wakker en slapend.
+    m_Localized: '<style="H2">Gameplay:</style>
 
-      Wakkere toestand
-      = Je moet zo stil mogelijk zijn om het wezen in slaap te laten vallen.
+      <style="H3">Wakkere toestand:</style>
 
-      Slapende
-      toestand = Je moet zoveel mogelijk lawaai maken om het wezen wakker te maken.
+      -
+      Als het wezen wakker is, moet je zo stil mogelijk zijn om het in slaap te laten
+      vallen. Elk geluid dat je maakt, zorgt ervoor dat het wezen niet in slaap valt.
 
-      Timer
-      = Deze kan worden gebruikt om te proberen het wezen binnen een bepaalde tijd
-      van toestand te laten wisselen.'
+      <style="H3">Slapende
+      toestand:</style>
+
+      - Als het wezen slaapt, moet je gedurende een bepaalde
+      tijd zoveel mogelijk lawaai maken totdat het wezen volledig wakker wordt.
+
+      <style="H2">UI-elementen:</style>
+
+      <style="H3">Spel:</style>
+
+      -
+      Druk op de schakelaar om de starttoestand van het wezen te wijzigen, slapend
+      of wakker.
+
+      - Druk op de microfoonknop om de microfoon te dempen en het
+      dempen op te heffen.
+
+      - De balk onderaan geeft aan hoe hard je praat.
+
+      -
+      Als de timer actief is, kun je op de timer drukken om naar de timer instellingen
+      te gaan.
+
+      <style="H3">Instellingen:</style>
+
+      - Kalibreer de microfoongevoeligheid
+      (volume) door de schuifregelaar naar links en rechts te schuiven.
+
+      -
+      Kies de juiste microfoon door deze in het dropdownmenu te selecteren.
+
+      -
+      Wissel tussen achtergronden door op de knoppen links en rechts te drukken.
+
+      -
+      Wissel tussen wezens door op de knoppen links en rechts te drukken.
+
+      <style="H3">Timer:</style>
+
+      -
+      De startknop start de timer.
+
+      - De resetknop reset de timer.
+
+      -
+      De knop omhoog telt 1 uur/minuut/seconde op bij de corresponderende positie
+      op de timer.
+
+      - De knop omlaag trekt 1 uur/minuut/seconde af bij de corresponderende
+      positie op de timer.'
     m_Metadata:
       m_Items: []
   references:

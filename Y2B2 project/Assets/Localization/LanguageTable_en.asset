@@ -19,17 +19,66 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 309141643264
-    m_Localized: 'Switch Button = Switch between awake and asleep states.
+    m_Localized: '<style="H2">Gameplay:</style>
 
-      Awake
-      state = You must be as quiet as possible for the creature to fall asleep.
+      <style="H3">Awake State:</style>
 
-      Asleep
-      state = You must make as much noise as possible for the creature to wake up.
+      -
+      If the creature is on the awake state, you have to be as quiet as possible
+      for the creature to fall asleep. Any time you make a sound, the creature stops
+      the falling asleep.
 
-      Timer
-      = This can used to try to get the creature to switch states within a given
-      time.'
+      <style="H3">Asleep State:</style>
+
+      - If the
+      creature is on the asleep state, you have to make as much noise as possible
+      for a certain time until the creature to become fully awake.
+
+      <style="H2">UI
+      Elements:</style>
+
+      <style="H3">Game Screen:</style>
+
+      - Press the
+      switch button to switch the starting state of the creature, either asleep or
+      awake.
+
+      - Press the microphone button to mute and unmute..
+
+      - The
+      bar at the bottom show how loud you are talking
+
+      - If the timer is active,
+      you can press the timer to go to the timer settings.
+
+      <style="H3">Settings
+      Screen:</style>
+
+      - Calibrate the microphone sensitivity (loudness) by
+      sliding the slider left and right.
+
+      - Choose the correct microphone by
+      selecting it in the dropdown menu.
+
+      - Switch between backgrounds by pressing
+      the buttons left and right.
+
+      - Switch between creatures by pressing the
+      buttons left and right.
+
+      <style="H3">Timer Screen:</style>
+
+      - Start
+      button starts the timer.
+
+      - Reset button resets the timer.
+
+      - The
+      up button adds 1 hour/minute/second on the corresponding position on the timer.
+
+      -
+      The down button subtracts 1 hour/minute/second on the corresponding position
+      on the timer.'
     m_Metadata:
       m_Items: []
   references:
