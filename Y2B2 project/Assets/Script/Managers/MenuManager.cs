@@ -12,14 +12,16 @@ public class MenuManager : MonoBehaviour
     [Tooltip("Speed the panel moves")]
     [SerializeField] private float moveSpeed;
     [Tooltip("Button for opening and closing the menu")]
-    [SerializeField] private Button OpenCloseButton;
+    [SerializeField] private Button openCloseButton;
+
+    [SerializeField] private Sprite arrowDownSprite;
+    [SerializeField] private Sprite arrowUpSprite;
 
     [Header("Menu Switching")]
     [Tooltip("All menus")]
     [SerializeField] private GameObject[] menus;
 
     private Vector2 originalPos;
-    private TMP_Text buttonText;
 
     private bool isOpen;
 
@@ -31,7 +33,6 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         originalPos = menuPanel.transform.position;
-        buttonText = OpenCloseButton.GetComponentInChildren<TMP_Text>();
     }
 
     private void Update()
@@ -51,10 +52,7 @@ public class MenuManager : MonoBehaviour
     {
         isOpen = state;
 
-        //if (isOpen)
-        //    buttonText.text = "Close Menu";
-        //else
-        //    buttonText.text = "Open Menu";
+        openCloseButton.image.sprite = isOpen ? arrowUpSprite : arrowDownSprite;
     }
 
     // Open and close the menu bar
