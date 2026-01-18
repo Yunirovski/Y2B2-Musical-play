@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
@@ -195,6 +195,10 @@ public class Creature : MonoBehaviour
     {
         if (creatureAnimator == null) return;
 
+        if (state == CreatureState.Awake)// Trigger the button press animation when reaching Awake state
+        {
+            creatureAnimator.SetTrigger("buttoon");
+        }
         // Reset all booleans first to ensure only one is active at a time
         creatureAnimator.SetBool("awake", false);
         creatureAnimator.SetBool("awakening", false);
@@ -231,8 +235,9 @@ public class Creature : MonoBehaviour
     // Function for a UI button to switch the start state. So WAKING UP || FALLING ASLEEP
     public void SwitchState()
     {
-        if (currentState == CreatureState.Asleep)
+        if (currentState != CreatureState.Awake)
         {
+            // Force to SetState -> UpdateAnimatorBooleans -> SetTrigger("buttoon")
             SetState(CreatureState.Awake);
         }
         else
