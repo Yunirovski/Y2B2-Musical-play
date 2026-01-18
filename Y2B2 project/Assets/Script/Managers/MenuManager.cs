@@ -37,14 +37,14 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        Vector2 dest;
+        Vector2 dest = isOpen ? (Vector2)targetPos.transform.position : originalPos;
 
-        if (isOpen)
-            dest = targetPos.transform.position;
+        // Only lerp it when we aren't there yet
+        if(Vector2.Distance(menuPanel.transform.transform.position, dest) > 0.01f)
+            menuPanel.transform.position = Vector2.Lerp(menuPanel.transform.position, dest, moveSpeed * Time.deltaTime);
         else
-            dest = originalPos;
+            menuPanel.transform.position = dest;
 
-        menuPanel.transform.position = Vector2.Lerp(menuPanel.transform.position, dest, moveSpeed * Time.deltaTime);
     }
 
     // Set the menu state

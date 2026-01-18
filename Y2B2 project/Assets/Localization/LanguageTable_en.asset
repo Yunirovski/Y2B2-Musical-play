@@ -81,6 +81,18 @@ MonoBehaviour:
       on the timer.'
     m_Metadata:
       m_Items: []
+  - m_Id: 2858867474505728
+    m_Localized: 'Microphone Sensitivity:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2858882200707072
+    m_Localized: 'Select Microphone:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2859204939816960
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
