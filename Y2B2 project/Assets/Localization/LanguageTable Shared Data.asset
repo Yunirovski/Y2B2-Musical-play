@@ -19,6 +19,18 @@ MonoBehaviour:
     m_Key: HelpText
     m_Metadata:
       m_Items: []
+  - m_Id: 2858867474505728
+    m_Key: MicSensText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2858882200707072
+    m_Key: SelectMicText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2859204939816960
+    m_Key: SettingsText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
