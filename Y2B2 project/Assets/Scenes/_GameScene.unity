@@ -699,6 +699,22 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 7698284259239264504, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: backgroundVideos.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7698284259239264504, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: 'backgroundVideos.Array.data[1]'
+      value: 
+      objectReference: {fileID: 32900000, guid: 613a9a47a59511645ad3360dc97c9ae8, type: 3}
+    - target: {fileID: 7698284259239264504, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: 'backgroundVideos.Array.data[2]'
+      value: 
+      objectReference: {fileID: 32900000, guid: b4261bb9035c2c74fb9352428f4c77ab, type: 3}
+    - target: {fileID: 7698284259239264504, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: 'backgroundVideos.Array.data[3]'
+      value: 
+      objectReference: {fileID: 32900000, guid: c7a4575a95d75a04bafc0dc27ae1235d, type: 3}
     - target: {fileID: 7715617824383792375, guid: f917aa22581a29648a7c11a25350336e, type: 3}
       propertyPath: m_Name
       value: GameCanvas
