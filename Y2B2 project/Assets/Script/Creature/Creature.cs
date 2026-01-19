@@ -26,6 +26,7 @@ public class Creature : MonoBehaviour
     [SerializeField] private Slider sensitivitySlider; // Made by Yuni
     private Image creatureImage;
     [SerializeField] private Animator creatureAnimator; // Made by Yuni, animation
+    [SerializeField] private RectTransform thresholdMarker;
 
     [Header("State Settings")]
     [Tooltip("Match each state to a sprite")]
@@ -37,7 +38,7 @@ public class Creature : MonoBehaviour
     [Tooltip("Multiplies the mic input")]
     [SerializeField] private float loudnessMultiplier = 100f;
     [Tooltip("Volume level requiored for it to be considered 'Noise'")]
-    [SerializeField] private float threshold = 0.1f;
+    [SerializeField, Range(0f, 50f)] private float threshold = 0.1f;
     [Tooltip("Time required to change state")]
     [SerializeField] private float timeRequirement = 3f;
     [Tooltip("How long is needed of the opposite input (noise/silence) for the progress timers to reset")]
@@ -80,6 +81,7 @@ public class Creature : MonoBehaviour
 
         // Set the start state
         SetState(currentState);
+        UpdateThresholdUI();
     }
 
     void Update()
@@ -111,6 +113,7 @@ public class Creature : MonoBehaviour
         HandleStates();
 
         // 5. Process the change
+        UpdateThresholdUI();
         UpdateTimers(processedLoudness);
     }
 
@@ -150,6 +153,19 @@ public class Creature : MonoBehaviour
                 timerBelow = 0;
             }
         }
+    }
+
+    private void UpdateThresholdUI()
+    {
+        // Get the value between both
+        float n = Mathf.InverseLerp(loudnessSlider.minValue, loudnessSlider.maxValue, threshold);
+
+        // Get the width of the slider recttransform
+        RectTransform sliderRect = loudnessSlider.GetComponent<RectTransform>();
+        float width = sliderRect.rect.width;
+
+        // Set the position of the thresholdmarker
+        thresholdMarker.anchoredPosition = new Vector2(n * width, 0);
     }
 
     private void HandleStates()
