@@ -628,6 +628,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1302708331}
+    - target: {fileID: 2427671017293936254, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427671017293936254, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427671017293936254, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
+      objectReference: {fileID: 0}
     - target: {fileID: 2580648944259591682, guid: f917aa22581a29648a7c11a25350336e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -849,9 +861,21 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7698284259239264504, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: creatureSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7698284259239264504, guid: f917aa22581a29648a7c11a25350336e, type: 3}
       propertyPath: backgroundVideos.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7698284259239264504, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: 'creatureSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 520f94885707d464e8b2ecd2846dc629, type: 3}
+    - target: {fileID: 7698284259239264504, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+      propertyPath: 'creatureSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: b37b51734637beb4ea0c7f93a2035266, type: 3}
     - target: {fileID: 7698284259239264504, guid: f917aa22581a29648a7c11a25350336e, type: 3}
       propertyPath: 'backgroundVideos.Array.data[1]'
       value: 
