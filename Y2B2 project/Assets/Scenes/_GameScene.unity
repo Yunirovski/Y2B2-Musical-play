@@ -574,17 +574,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1543803057 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5877912163396781496, guid: f917aa22581a29648a7c11a25350336e, type: 3}
-  m_PrefabInstance: {fileID: 7966316050178610957}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e8b482444496d64d9043b879f16d2e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Creature
 --- !u!114 &2039967081 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7753456706173110186, guid: f917aa22581a29648a7c11a25350336e, type: 3}
@@ -807,7 +796,7 @@ PrefabInstance:
     - target: {fileID: 6558560881396806019, guid: f917aa22581a29648a7c11a25350336e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1543803057}
+      objectReference: {fileID: 0}
     - target: {fileID: 6558560881396806019, guid: f917aa22581a29648a7c11a25350336e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
@@ -929,7 +918,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1302708331}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5346026883181083258, guid: f917aa22581a29648a7c11a25350336e, type: 3}
+    - {fileID: 4362697438143248258, guid: f917aa22581a29648a7c11a25350336e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f917aa22581a29648a7c11a25350336e, type: 3}

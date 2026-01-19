@@ -15,6 +15,8 @@ public class GameSettingsManager : MonoBehaviour
 
     private int currentIndexBG = 0;
 
+    [SerializeField] private Sprite[] creatureSprites;
+
     // ---  made by yuni ---
     [Header("Creature Settings - made by yuni")]
     [Tooltip("List of all creature GameObjects/Images")]
@@ -98,7 +100,7 @@ public class GameSettingsManager : MonoBehaviour
         // made by yuni:  sync preview images 
         if (creatureImages[currentIndexCreature] != null)
         {
-            Sprite selectedSprite = creatureImages[currentIndexCreature].sprite;
+            Sprite selectedSprite = creatureSprites[currentIndexCreature];
 
             if (backgroundCreature != null)
                 backgroundCreature.sprite = selectedSprite;
